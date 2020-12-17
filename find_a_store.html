@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <style>
+        .map-container{
+            overflow:hidden;
+            padding-bottom: 70%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+        .tombol:hover {
+            background-color: rgb(156, 162, 165);
+        }
+        .btn {
+            border-radius: 25px;
+        }
+        .a:hover {
+            color: green;
+        }
+        .container-4 input#search{
+            width: 65%;
+            height: 3em;
+            font-size: 10pt;
+            float: left;
+            color: rgb(5, 1, 1);
+            padding-left: 15px;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+        }
+        .container-4 button.icon{
+            border: none;
+            background: #fdfdfd;
+            height: 3em;
+            width: 10%;
+            color: #4f5b66;
+            opacity: 1;
+        }
+        .button {
+            width: 20%;
+        }
+        .button:hover {
+            background-color: rgb(185, 176, 176);
+        }
+        .bot {
+            bottom: 0px;
+            display: inline-block;
+            position: absolute;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-4" style="background-color: rgb(225, 252, 239);">  
+        <nav class="navbar navbar-expand-md navbar-dark">
+              <div class="container pl-0">
+                <a class="navbar-brand img-fluid" href="#">
+                  <img src="logo.png" alt="logo" style="width: 45px;">
+                </a>
+                <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav" style="font-size: 1.2em; font-weight: bolder;">
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><span class="a">MENU</span></a></li>
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><span class="a">REWARDS</span><a></li>
+                      <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><span class="a">GIFT CARD</span></a></li>
+                    </ul>
+                </div>
+              </div>
+            <div class="navbar navbar-fixed-top navbar-custom" style="width: 60%;">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="nav navbar-nav" style="font-size: 1em; font-weight: 600;">
+                    <li><div class="pr-4"><i class="fas fa-map-marker-alt "> </i> <a href="#" style="text-decoration: none; font-size: 1.2em;"><span class="text-dark"> Find a store</span></a></div></li>
+                    <li><div class="pr-4"><button type="button" class="btn btn-outline-dark tombol"><a href="#" style="text-decoration: none; font-size: 1em;"><span class="text-dark">Sign in </span></a></button></div></li>
+                    <li><button type="button" class="btn btn-dark tombol mr-3"><a href="#" style="text-decoration: none; font-size: 1em;"><span class="text-light"> Join now </span></a></button>
+                    <li>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown" style="font-size: 1em;">Lainnya</button>
+                        <div class="dropdown-menu" >
+                          <a class="dropdown-item" href="http://127.0.0.1:5500/index.html" style="font-size: 1em;">Home</a>
+                          <a class="dropdown-item" href="http://127.0.0.1:5500/contact_us.html" style="font-size: 1em;">Contact Us</a>
+                          <a class="dropdown-item" href="http://127.0.0.1:5500/starbucks_for_life.html"style="font-size: 1em;">Starbucks for life</a>
+                          <a class="dropdown-item" href="http://127.0.0.1:5500/biodata.html#"style="font-size: 1em;">Biodata</a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+            </div>
+        </nav>
+    </div>
+        <div class="container-fluid">
+    <section class="section pb-5">
+  
+    <div class="row">
+  
+      <div class="col-sm-5 mb-4">
+        <div class="search-container">
+            <div class="box container">
+                <div class="container-4">
+                  <input type="search" id="search" placeholder="Search..." style="font-size: 1em;" />
+                  <button class="icon"><i class="fa fa-search"></i></button>
+                  <button type="button" class="btn btn-success button bg-light"><a href="#" style="text-decoration: none; font-size: 1em; font-weight: 600;"><span class="text-success">Filter</span> </a></button>
+                </div>
+              </div>
+        </div>
+        <div class="container mt-4">
+            <div class="form-header blue accent-1">
+                <h3></i> We are unable to access your exact location</h3>
+            </div>
+                <p>To find a Starbucks store, use the search feature, navigate using the map, or turn on location services.</p>
+            <br>
+          </div>
+            <div class=" container bot">
+                Privacy Statement | Terms of Use
+            </div>
+        </div>
+
+      <div class="col-sm-7">
+        <!--Google map-->
+        <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 100%">
+            <iframe src="https://maps.google.com/maps?q=Starbucks&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+              style="border:0" allowfullscreen></iframe>
+        </div>
+      </div> 
+    </div>
+  
+  </section>
+
+</body>
+</html>
